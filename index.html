@@ -8,8 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
+    <h1>Matrix Solver</h1>
+
+    <div> 
+        <p>Enter the size of array</p>
+        <input type="number" min="0" onkeypress="return event.charCode >= 48">
+        <button>Enter</button>
+
+        <p>enter the elements of the matrix </p>
+        <input type="number">
+        <button>Enter</button>
+
+        <br><br>
+        <label for="prop">Choose what to solve</label>
+        <br>
+        <select id="prop" name="type_s">
+            <option value="determinant">determinant</option>
+            <option value="rank">rank</option>
+        </select>
+    </div>
     
 </body>
 </html>
