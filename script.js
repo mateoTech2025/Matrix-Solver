@@ -21,6 +21,8 @@ function sizeInsert() {
     console.log(colsize);
 }
 
+
+// The logic here is wrong and can cause some malicious insert.
 function insertToVector() {
     colsize --;
     if (colsize >= 0) {
