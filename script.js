@@ -11,36 +11,47 @@ const sizeBtn = document.getElementById("size-btn");
 const elementBtn = document.getElementById("element-btn");
 const sizeInput = document.getElementById("size-fld");
 const elementInput = document.getElementById("element-fld");
+const solveBtn = document.getElementById("solve-btn");
+solveBtn.disabled = true;
+elementBtn.disabled = true;
 
 
 function sizeInsert() {
     rowsize = sizeInput.value;
     colsize = sizeInput.value;
 
-    console.log(rowsize);
-    console.log(colsize);
+    console.log(rowsize + ": the row size is added");
+    console.log(colsize + ": the column size is added");
+    sizeBtn.disabled = true;
+    elementBtn.disabled = false;
 }
 
 
 // The logic here is wrong and can cause some malicious insert.
 function insertToVector() {
-    colsize --;
-    if (colsize >= 0) {
-        console.log(vector.push(elementInput.value));
-        elementInput.value = "";
+    const value = elementInput.value.trim();
+
+    if (!value) {
+        vector.push(0); 
+    } else {
+        vector.push(elementInput.value);
     }
-    else {
-        console.log(matrix.push(vector));
-        rowsize --;
-        colsize = n
-        if (colsize <= 0) {
-            elementBtn.disabled = true;
+    console.log(value + ": is inserted in [" + vector + "] " + vector.length);
+}
+
+function vectorReseter() {
+    console.log("Reset function activated!");
+    if (matrix.length <= rowsize) {
+        console.log("I reached here " + colsize);
+        if (vector.length == colsize) {
+            matrix.push(vector);
+            console.log("matrix is inserted" + matrix);
+            vector = [];
         }
-        colsize --;
-        console.log(vector.push(elementInput.value));
-        elementInput.value = ""
+    } else {
+        console.log("matrix is complete");
+        elementBtn.disabled = true;
     }
-    
 }
 
 function MatrixSolve() {
@@ -50,3 +61,4 @@ function MatrixSolve() {
 
 sizeBtn.addEventListener('click', sizeInsert);
 elementBtn.addEventListener('click', insertToVector)
+elementBtn.addEventListener('click', vectorReseter)
